@@ -9,5 +9,19 @@
     <h1>Control de Motor ESP32</h1>
     <button onclick="location.href='/motor/on'">Encender Motor</button>
     <button onclick="location.href='/motor/off'">Apagar Motor</button>
+    <h2>Datos del Sensor DHT11</h2>
+    <p>Temperatura: <span id="temp">Cargando...</span> °C</p>
+    <p>Humedad: <span id="hum">Cargando...</span> %</p>
+    <script>
+        const esp32Ip = 'http://<DIRECCION_IP_DEL_ESP32>'; // Cambia esto por la IP de tu ESP32
+        setInterval(() => {
+            fetch(`${esp32Ip}/data`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('temp').innerText = data.temperatura;
+                    document.getElementById('hum').innerText = data.humedad;
+                });
+        }, 2000);
+    </script>
 </body>
 </html>
