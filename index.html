@@ -13,7 +13,7 @@
     <p>Temperatura: <span id="temp">Cargando...</span> °C</p>
     <p>Humedad: <span id="hum">Cargando...</span> %</p>
     <script>
-        const esp32Ip = 'http://<DIRECCION_IP_DEL_ESP32>'; // Cambia esto por la IP de tu ESP32
+        const esp32Ip = 'http://<192.168.80.20>'; // Cambia esto por la IP de tu ESP32
         setInterval(() => {
             fetch(`${esp32Ip}/data`)
                 .then(response => response.json())
